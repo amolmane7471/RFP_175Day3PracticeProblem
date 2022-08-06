@@ -1,38 +1,30 @@
 package com.bridgelabz.empwage;
+/*
+ * UC4 : emp wage Using switch case statements
+ */
 public class EmpWage {
-
+	public static final int EMP_RATE_PER_HOUR = 20;
+	
 	public static void main(String[] args) {
 	System.out.println("Welcome To Employee Wage Computation Problem");
-	int IS_PARTTIME = 2;
-	int IS_FULLTIME = 1;
-	int EMP_RATE_PER_HOUR = 20;
+    final int IS_PARTTIME = 2;
+	final int IS_FULLTIME = 1;
 	int empHrs;
 	int empWage;
-	double empcheck = Math.floor(Math.random()*10)%3;
-	/*
-	 * UC1 : Employee Attendance
-	 */
-	if(empcheck == IS_FULLTIME)
-	{
-	empHrs = 8;
-	System.out.println("Emp is Full Time Present");
+	int empcheck = (int)Math.floor(Math.random()*10)%3;
+	switch (empcheck) {
+	case IS_PARTTIME:
+					System.out.println("Emp Is Part Time Present");
+					empHrs=4;
+					break;
+	case IS_FULLTIME:
+					System.out.println("Emp Is Full Time Present");
+					empHrs=8;
+					break;
+	default:
+					System.out.println("Emp Is Absent");
+					empHrs=0;
 	}
-	/*
-	 * UC3 : Part Time Employee and wage
-	 */
-	else if(empcheck == IS_PARTTIME)
-	{
-	empHrs = 4;
-	System.out.println("Emp is Part Time Present");
-	}
-	else 
-	{
-	empHrs=0;
-	System.out.println("Emp is Absent");
-	}
-	/*
-	 * UC2 : calculate daily emp wages
-	 */
 	empWage=empHrs*EMP_RATE_PER_HOUR;
 	System.out.println("Emp Wage:"+empWage);	
 	}
